@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface ContactButtonProps {
   label?: string;
@@ -22,7 +23,7 @@ export const ContactButton: React.FC<ContactButtonProps> = ({
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth' });
       } else {
-        window.location.href = 'mailto:garvshawinfo@gmail.com';
+        window.location.href = `mailto:${PERSONAL_INFO.email}`;
       }
     }
   };
