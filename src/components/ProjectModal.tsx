@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ExternalLink, Github, Layers, Tag } from 'lucide-react';
+import { X, ExternalLink, Github, Tag, CheckCircle2 } from 'lucide-react';
 import { ProjectItem } from '../types';
 
 interface ProjectModalProps {
@@ -39,19 +39,52 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {/* Header */}
           <div className="flex items-center gap-4 mb-2">
-            <span className="font-black text-cyan-400 text-2xl drop-shadow-[0_0_10px_rgba(6,182,212,0.4)]">{project.number}</span>
+            <span className="font-black text-cyan-400 text-2xl drop-shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+              {project.number}
+            </span>
             <span className="text-xs uppercase tracking-widest text-cyan-400/80 font-medium">
               {project.category} &bull; {project.type}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-black uppercase text-white tracking-tight mb-4">
-            {project.title}
-          </h2>
+          <div className="flex flex-wrap items-center gap-4 mb-4">
+            {project.logo && (
+              <div className="h-9 sm:h-11 px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                <img
+                  src={project.logo}
+                  alt={`${project.title} logo`}
+                  className="max-h-full max-w-[140px] object-contain"
+                />
+              </div>
+            )}
+            <h2 className="text-2xl sm:text-4xl font-black uppercase text-white tracking-tight">
+              {project.title}
+            </h2>
+          </div>
 
           <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed mb-6">
             {project.description}
           </p>
+
+          {/* Key Architecture Highlights */}
+          {project.highlights && project.highlights.length > 0 && (
+            <div className="mb-6 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10">
+              <h4 className="text-xs uppercase tracking-widest text-cyan-400 font-semibold mb-3">
+                Key Highlights &amp; Architecture (Resume)
+              </h4>
+              <ul className="space-y-2.5">
+                {project.highlights.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-2.5 text-sm sm:text-base text-slate-300 font-light"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-cyan-400 mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-8">
@@ -138,7 +171,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500 text-black text-sm font-bold uppercase tracking-wider hover:bg-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  <span>Visit Project</span>
+                  <span>Visit Live Platform</span>
                 </a>
               )}
             </div>
