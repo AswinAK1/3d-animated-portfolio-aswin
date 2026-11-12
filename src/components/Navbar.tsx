@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
   onContactClick?: () => void;
@@ -19,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick, id = 'main-navba
         el.scrollIntoView({ behavior: 'smooth' });
         return;
       }
-      window.location.href = 'mailto:garvshawinfo@gmail.com';
+      window.location.href = `mailto:${PERSONAL_INFO.email}`;
       return;
     }
 
@@ -32,6 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick, id = 'main-navba
   const navLinks = [
     { label: 'About', target: 'about' },
     { label: 'Skills', target: 'skills' },
+    { label: 'Experience', target: 'experience' },
     { label: 'Projects', target: 'projects' },
     { label: 'Contact', target: 'contact' },
   ];
@@ -50,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick, id = 'main-navba
           id={`nav-link-${link.target}`}
           href={`#${link.target}`}
           onClick={(e) => scrollToSection(e, link.target)}
-          className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-cyan-400 hover:drop-shadow-[0_0_12px_rgba(6,182,212,0.8)] transition-all duration-200 cursor-pointer"
+          className="text-[#D7E2EA] font-medium uppercase tracking-wider text-xs sm:text-sm md:text-base lg:text-[1.25rem] hover:text-cyan-400 hover:drop-shadow-[0_0_12px_rgba(6,182,212,0.8)] transition-all duration-200 cursor-pointer"
         >
           {link.label}
         </a>
