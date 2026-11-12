@@ -1,4 +1,11 @@
-import { ProjectItem, ServiceItem, SkillItem, SpecializedDomain } from '../types';
+import {
+  ProjectItem,
+  SkillItem,
+  ExperienceItem,
+  EducationItem,
+  SpecializedDomain,
+} from '../types';
+
 import stockTradingImg from '../assets/images/stock_trading_terminal_1788685213853.jpg';
 import financialDashboardImg from '../assets/images/financial_portfolio_dashboard_1788685234765.jpg';
 import apiBackendImg from '../assets/images/api_backend_development_1788685793691.jpg';
@@ -14,161 +21,367 @@ import typingTestHistoryImg from '../assets/images/typing_test_history_178868689
 import stockmentorLearningPathImg from '../assets/images/stockmentor_learning_path_1788686981081.jpg';
 import microskillArcadeDashboardImg from '../assets/images/microskill_arcade_dashboard_1788687163167.jpg';
 
+// Live Project Logos & Authentic Web/App UI Visuals
+import scaleupLogo from '../assets/images/scaleup_logo.png';
+import loveandringLogo from '../assets/images/loveandring_logo.png';
+import cybotLogo from '../assets/images/cybot_logo.png';
+import cybotMac from '../assets/images/cybot_mac.png';
+import cybotMsoc from '../assets/images/cybot_msoc.jpg';
+
+// Matrimony Platform Web & App UI Screenshots (No couple stock photos)
+import loveandringStep1 from '../assets/images/loveandring_step1.png'; // Sign-in & OTP Authentication
+import loveandringStep2 from '../assets/images/loveandring_step2.png'; // Matches directory & partner search (desktop & mobile)
+import loveandringStep3 from '../assets/images/loveandring_step3.png'; // Socket.IO real-time chat interface
+import loveandringServicesUi from '../assets/images/loveandring_services_ui.png'; // Curated wedding services portal
+
+export const PERSONAL_INFO = {
+  name: 'Aswin AK',
+  firstName: 'aswin',
+  title: 'Full Stack Developer',
+  email: 'aswinak1212@gmail.com',
+  phone: '8921650561',
+  location: 'Calicut, Kerala',
+  linkedinUrl: 'https://linkedin.com/in/aswinak1212',
+  linkedinLabel: 'linkedin.com/in/aswinak1212',
+  githubUrl: 'https://github.com/AswinAK1',
+  githubLabel: 'github.com/AswinAK1',
+  summary:
+    'Full Stack Developer with experience building secure, scalable web applications. Skilled in React.js, Next.js, Node.js, Nest.js, Express, MongoDB and real-time systems using Socket.IO. Strong in API development, debugging, automation workflows and cloud deployment in AWS and other platforms, with proven ability to deliver solutions across cybersecurity, CRM, Matrimony, Medical AI domains and Custom softwares.',
+};
+
 export const MARQUEE_IMAGES = [
-  stockTradingImg,
-  typingTestMainImg,
-  stockmentorLearningPathImg,
-  microskillArcadeDashboardImg,
-  apiDev3dScreenImg,
   salaryosDashboardImg,
-  apiBackendImg,
-  typingTestHeatmapImg,
-  'api-dev-3d-screen',
-  apiFlow3dScreenImg,
-  financialDashboardImg,
+  loveandringStep2,
+  cybotMsoc,
   apiDev3dScreenImg,
-  apiBackendImg,
-  frontendDashboardImg,
+  scaleupLogo,
+  salaryosCommandCenterImg,
+  loveandringStep3,
+  cybotMac,
+  'api-dev-3d-screen',
   salaryosAnalyticsImg,
-  typingTestHistoryImg,
-  'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',
-  stockTradingImg,
-  'https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif',
-  frontendDashboardImg,
+  loveandringServicesUi,
   apiFlow3dScreenImg,
+  cybotLogo,
+  loveandringStep1,
+  loveandringLogo,
   apiBackendImg,
+  typingTestMainImg,
+  microskillArcadeDashboardImg,
   financialDashboardImg,
+  stockTradingImg,
+  typingTestHeatmapImg,
 ];
 
 export const SKILLS: SkillItem[] = [
   {
-    id: 'ai-development',
+    id: 'frontend-development',
     number: '01',
-    title: 'AI Development',
+    title: 'Frontend Development',
     description:
-      'Building intelligent solutions using machine learning and deep learning. From chatbots to predictive models, I create AI systems that drive business value and enhance user experiences.',
-    tags: ['Machine Learning', 'Deep Learning', 'LLMs', 'Neural Networks', 'Predictive Modeling'],
+      'Architecting responsive, high-performance web applications and intuitive interfaces. Expert in modern React workflows, Next.js SSR/SSG, modular component architecture, and polished styling systems.',
+    tags: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'React.js',
+      'Next.js',
+      'Material UI',
+      'Tailwind CSS',
+    ],
   },
   {
-    id: 'ai-for-business',
+    id: 'backend-development',
     number: '02',
-    title: 'AI For Business',
+    title: 'Backend Development & REST APIs',
     description:
-      'Empowering enterprises with custom AI integrations, intelligent workflow automation, RAG knowledge bases, and autonomous agents designed to reduce operational costs and accelerate business ROI.',
-    tags: ['Autonomous Agents', 'RAG Pipelines', 'Workflow Automation', 'Enterprise AI', 'ROI Optimization'],
+      'Engineering high-concurrency microservices, multi-tenant application backends, and robust RESTful APIs with strict authentication, OTP verification, and efficient business logic flow.',
+    tags: [
+      'Node.js',
+      'Express.js',
+      'Nest.js',
+      'MongoDB',
+      'REST APIs',
+      'Socket.io',
+      'Multer',
+      'JWT / Auth',
+    ],
   },
   {
-    id: 'cloud-computing',
+    id: 'database-cloud',
     number: '03',
-    title: 'Cloud Computing',
+    title: 'Database & Cloud Architecture',
     description:
-      'Architecting resilient multi-cloud environments, serverless computing pipelines, container orchestration with Docker/Kubernetes, and automated CI/CD infrastructures on AWS and GCP.',
-    tags: ['AWS', 'Google Cloud', 'Docker', 'Kubernetes', 'Serverless', 'Terraform', 'CI/CD'],
+      'Designing optimized database schemas, document indexing, scalable object storage, and managed cloud databases for enterprise SaaS and customer-facing platforms.',
+    tags: ['MongoDB', 'Firebase', 'AWS', 'Supabase', 'Cloud Storage'],
   },
   {
-    id: 'api-development',
+    id: 'devops-deployment',
     number: '04',
-    title: 'API Development',
+    title: 'DevOps & Production Deployment',
     description:
-      'Engineering high-throughput REST and GraphQL microservices, real-time WebSockets, secure OAuth authentication, OpenAPI specifications, and event-driven data streaming.',
-    tags: ['RESTful APIs', 'GraphQL', 'WebSockets', 'OAuth 2.0', 'Microservices', 'FastAPI'],
+      'Deploying and maintaining production server environments on AWS with Nginx reverse proxying, PM2 process management, SSL configuration, container orchestration, and CI/CD pipelines.',
+    tags: ['Docker', 'Kubernetes', 'Git', 'GitHub', 'Nginx', 'PM2', 'Linux', 'AWS EC2', 'AWS S3', 'SSL'],
   },
   {
-    id: 'financial-markets',
+    id: 'realtime-systems',
     number: '05',
-    title: 'Financial Markets',
+    title: 'Real-Time Communication & Media',
     description:
-      'Deep domain analysis of market microstructure, order books, equity and derivatives trading mechanics, risk metrics (VaR, Sharpe ratio), and algorithmic execution patterns.',
-    tags: ['Market Microstructure', 'Equities & Derivatives', 'Order Book Dynamics', 'Risk Analytics', 'Algorithmic Trading'],
+      'Specialized in event-driven real-time architectures, bi-directional chat applications, and interactive audio/video conferencing solutions with sub-second synchronization.',
+    tags: ['Socket.IO', 'ZEGOCLOUD', 'WebSockets', 'Real-Time Chat', 'Audio/Video Calling', 'Live Events'],
   },
   {
-    id: 'capital-market-analysis',
+    id: 'tools-technologies',
     number: '06',
-    title: 'Capital Market Analysis',
+    title: 'Tools, Automation & AI Workflows',
     description:
-      'Rigorous quantitative valuation, discounted cash flow (DCF) modeling, macroeconomic factor analysis, portfolio asset allocation strategies, and corporate financial benchmarking.',
-    tags: ['Financial Modeling', 'DCF Valuation', 'Factor Analysis', 'Portfolio Theory', 'Financial Statement Analysis'],
-  },
-  {
-    id: 'c-programming',
-    number: '07',
-    title: 'C',
-    description:
-      'Building ultra-low-latency computational routines, manual memory management structures, cache-conscious algorithms, socket-level networking, and high-performance systems engineering.',
-    tags: ['Low-Latency Systems', 'Memory Management', 'Pointers & Data Structures', 'POSIX Sockets', 'Optimization'],
-  },
-  {
-    id: 'python-development',
-    number: '08',
-    title: 'Python',
-    description:
-      'Leveraging Python for enterprise AI/ML development, PyTorch neural networks, Pandas & NumPy quantitative analytics, asynchronous FastAPI microservices, and data pipeline automation.',
-    tags: ['PyTorch', 'Pandas & NumPy', 'FastAPI', 'AsyncIO', 'Data Pipelines', 'AI/ML Engineering'],
+      'Streamlining development cycles and business processes with intelligent workflow automation, comprehensive API testing, state management, and OpenAI integration.',
+    tags: ['Redux Toolkit', 'Postman', 'VS Code', 'n8n', 'Figma', 'Claude', 'OpenAI APIs'],
   },
 ];
 
 export const SERVICES = SKILLS;
 
-export const SPECIALIZED_DOMAINS: SpecializedDomain[] = [];
+export const SPECIALIZED_DOMAINS: SpecializedDomain[] = [
+  {
+    id: 'crm-saas',
+    title: 'CRM & Multi-Tenant SaaS',
+    badge: 'Enterprise Platform',
+    description:
+      'End-to-end multi-tenant SaaS architecture, lead management pipelines, dynamic analytics reporting, and automated business operations.',
+    skills: ['Next.js', 'NestJS', 'Multi-Tenancy', 'Sales Pipelines', 'Reporting'],
+    icon: 'Building2',
+  },
+  {
+    id: 'cybersecurity',
+    title: 'Cybersecurity & Threat Monitoring',
+    badge: 'Security Intelligence',
+    description:
+      'Centralized threat dashboards, active vulnerability analytics, security incident triage, and real-time alert dispatching.',
+    skills: ['Cybersecurity', 'Threat Monitoring', 'Analytics', 'Incident Triage'],
+    icon: 'ShieldCheck',
+  },
+  {
+    id: 'matrimony-media',
+    title: 'Matrimony & Real-Time Communication',
+    badge: 'Media & Real-Time',
+    description:
+      'Audio/video conferencing, real-time messaging, secure user profile verification, and SMS-based OTP authentication.',
+    skills: ['ZEGOCLOUD', 'Socket.IO', 'Audio/Video Calling', 'OTP Verification'],
+    icon: 'HeartHandshake',
+  },
+  {
+    id: 'medical-ai-custom',
+    title: 'Medical AI & Custom Softwares',
+    badge: 'AI & Custom Systems',
+    description:
+      'Domain-tailored full-stack platforms integrating OpenAI models, automated workflows, and high-reliability data processing.',
+    skills: ['Medical AI', 'OpenAI APIs', 'n8n Automation', 'Custom Engineering'],
+    icon: 'Cpu',
+  },
+];
+
+export const EXPERIENCES: ExperienceItem[] = [
+  {
+    id: 'luzid-craft',
+    role: 'Full Stack Developer',
+    company: 'Luzid Craft Business Solutions LLP',
+    period: 'Dec 2024 - Present',
+    location: 'Calicut, Kerala',
+    highlights: [
+      'Architected scalable full-stack applications using React.js, Next.js, NestJS, Node.js, and TypeScript, delivering robust capabilities across front-end and back-end layers.',
+      'Designed RESTful APIs, managing MongoDB databases, and implementing multi-tenant application architecture for scalable SaaS environments.',
+      'Developed CRM modules, including lead management, sales pipelines, reporting dashboards, and workflow automation to streamline business processes.',
+      'Integrated third-party services, real-time communication using Socket.IO, and AI-powered features using OpenAI APIs to enhance functionality and user experience.',
+      'Managed cloud deployments using AWS EC2, S3, Nginx, PM2, SSL configuration, and production server environments to ensure high availability and security.',
+    ],
+    skills: [
+      'React.js',
+      'Next.js',
+      'NestJS',
+      'Node.js',
+      'TypeScript',
+      'MongoDB',
+      'Socket.IO',
+      'OpenAI APIs',
+      'AWS EC2',
+      'AWS S3',
+      'Nginx',
+      'PM2',
+      'SSL',
+    ],
+  },
+  {
+    id: 'levelx',
+    role: 'Full stack Intern',
+    company: 'LevelX',
+    period: 'Jan 2024 - Nov 2024',
+    location: 'Calicut, Kerala',
+    highlights: [
+      'Architected responsive web applications using React.js, Node.js, Express.js, and MongoDB, achieving scalable UI and data flow.',
+      'Delivered RESTful APIs with authentication and backend functionalities, enabling robust database operations.',
+      'Spearheaded work on E-commerce, Food Delivery, Video Player, and Real-Time Chat applications to meet project scope.',
+      'Implemented integration of third-party APIs, file uploads using Multer, and OTP-based authentication to enhance security and functionality.',
+      'Collaborated with the development team to debug issues, test features, and deliver project requirements.',
+    ],
+    skills: [
+      'React.js',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'REST APIs',
+      'Multer',
+      'OTP Auth',
+      'Socket.IO',
+      'E-commerce',
+    ],
+  },
+];
+
+export const EDUCATION: EducationItem[] = [
+  {
+    id: 'mba',
+    degree: 'MBA',
+    field: 'Marketing Management',
+    institution: 'IGNOU',
+    period: 'Jan 2023 - Present',
+  },
+  {
+    id: 'bba',
+    degree: "Bachelor's Degree",
+    field: 'Business Administration (BBA)',
+    institution: 'MES Arts and Science College',
+    location: 'Chathamangalam',
+    period: 'Jan 2019 - Jan 2022',
+  },
+];
+
+export const LANGUAGES = [
+  { language: 'Malayalam', proficiency: 'Native' },
+  { language: 'English', proficiency: 'Fluent' },
+  { language: 'Hindi', proficiency: 'B2 Professional' },
+];
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: 'stockmentor',
+    id: 'scaleup-crm-saas',
     number: '01',
-    title: 'StockMentor',
-    category: 'AI Learning Platform',
-    description: 'Interactive financial education platform powered by AI and Socratic method',
-    type: 'Personal Project',
-    tags: ['AI Agent', 'Socratic Learning', 'FinTech', 'Cloud API'],
-    col1TopImage: stockTradingImg,
-    col1BottomImage: stockmentorLearningPathImg,
-    col2Image: financialDashboardImg,
-    githubUrl: 'https://github.com/garvshaw89-glitch/StockMentor',
-    liveUrl: 'https://stock-mentortutor.vercel.app/',
-  },
-  {
-    id: 'microskill',
-    number: '02',
-    title: 'MicroSkill',
-    category: 'EdTech Platform',
-    description: 'Science-backed micro-learning platform with spaced repetition algorithms',
-    type: 'Personal Project',
-    tags: ['EdTech', 'Spaced Repetition', 'React', 'Cloud Services'],
-    col1TopImage: apiBackendImg,
-    col1BottomImage: microskillArcadeDashboardImg,
-    col2Image: frontendDashboardImg,
-    githubUrl: 'https://github.com/garvshaw89-glitch/MicroSkill-Version-1.0',
-    liveUrl: 'https://microskillversion-10.vercel.app/',
-  },
-  {
-    id: 'typing-speed-check',
-    number: '03',
-    title: 'Typing Speed Check',
-    category: 'Performance Utility',
+    title: 'ScaleUp Business Builders',
+    category: 'CRM SaaS Platform',
     description:
-      'Interactive real-time typing speed test calculating live words per minute (WPM), accuracy percentages, character keystroke precision, and dynamic error analysis.',
-    type: 'Personal Project',
-    tags: ['Typing Speed', 'JavaScript', 'WPM Engine', 'Real-Time Metrics', 'Vercel'],
-    col1TopImage: typingTestMainImg,
-    col1BottomImage: typingTestHistoryImg,
-    col2Image: typingTestHeatmapImg,
-    githubUrl: 'https://github.com/garvshaw89-glitch/Typing-Speed-Checker-',
-    liveUrl: 'https://typing-speed-checker-liard.vercel.app/',
-  },
-  {
-    id: 'salaryos',
-    number: '04',
-    title: 'SalaryOS',
-    category: 'Personal Finance & Planning',
-    description:
-      'SalaryOS is a modern personal finance and salary planning platform designed to help users understand their income, manage monthly expenses, build savings goals, track recurring payments, and make smarter purchasing decisions. Get Paid. Plan Smart. Spend With Confidence.',
-    type: 'Personal Project',
-    tags: ['Salary Planning', 'FinTech', 'Budget Intelligence', 'Next.js', 'Vercel'],
+      'Multi-tenant enterprise CRM SaaS platform featuring comprehensive lead management modules, automated sales pipelines, reporting dashboards, and AI-powered business insights.',
+    type: 'Enterprise SaaS',
+    tags: [
+      'Next.js',
+      'React.js',
+      'NestJS',
+      'Node.js',
+      'MongoDB',
+      'AI Lead Analysis',
+      'Multi-Tenant',
+      'AWS EC2',
+      'Nginx',
+    ],
     col1TopImage: salaryosDashboardImg,
     col1BottomImage: salaryosCommandCenterImg,
     col2Image: salaryosAnalyticsImg,
-    githubUrl: 'https://github.com/garvshaw89-glitch/Salary-OS',
-    liveUrl: 'https://salaryos-one.vercel.app/',
+    logo: scaleupLogo,
+    liveUrl: 'https://app.scaleupbusinesssuite.com',
+    highlights: [
+      'Developed a multi-tenant CRM SaaS platform with enterprise-level application and lead management modules.',
+      'Integrated AI-powered lead analysis and automated business insights.',
+      'Implemented sales pipelines, reporting dashboards, and company-specific data management.',
+      'Architected cloud infrastructure on AWS EC2 & S3 with Nginx reverse proxying, PM2 process management, and SSL encryption.',
+    ],
+  },
+  {
+    id: 'love-and-ring',
+    number: '02',
+    title: 'Love & Ring',
+    category: 'Matrimony Platform',
+    description:
+      'Modern matrimonial platform delivering seamless matchmaking, user & admin portals, real-time video/audio calling via ZEGOCLOUD, instant chat with Socket.IO, and secure SMS-based OTP verification.',
+    type: 'Production Platform',
+    tags: [
+      'React.js',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'ZEGOCLOUD',
+      'Socket.IO',
+      'SMS OTP Auth',
+      'REST APIs',
+    ],
+    col1TopImage: loveandringStep3,
+    col1BottomImage: loveandringServicesUi,
+    col2Image: loveandringStep2,
+    logo: loveandringLogo,
+    liveUrl: 'https://loveandring.com/',
+    highlights: [
+      'Developed user-facing and admin panels with REST API integration.',
+      'Integrated ZEGOCLOUD for real-time audio/video communication and Socket.IO for real-time chat functionality.',
+      'Implemented SMS-based OTP verification and third-party service integrations for secure user authentication.',
+      'Built responsive matchmaking directories, profile security, and instant notifications.',
+    ],
+  },
+  {
+    id: 'cybot-threat-management',
+    number: '03',
+    title: 'CYBOT Threat Management',
+    category: 'Cybersecurity Platform',
+    description:
+      'Cybersecurity platform for Active Bytes providing real-time threat monitoring, cybersecurity dashboards, vulnerability telemetry, security analytics, and incident triage.',
+    type: 'Enterprise Security Solution',
+    tags: [
+      'React.js',
+      'TypeScript',
+      'Node.js',
+      'Cybersecurity',
+      'Threat Monitoring',
+      'Security Analytics',
+      'REST APIs',
+      'Active Bytes',
+    ],
+    col1TopImage: cybotMsoc,
+    col1BottomImage: cybotMac,
+    col2Image: apiFlow3dScreenImg,
+    logo: cybotLogo,
+    liveUrl: 'https://active-bytes.com/',
+    highlights: [
+      'Developed cybersecurity dashboards and integrated threat monitoring, analytics, and security management features.',
+      'Built interactive data visualization for live security events, vulnerability scores, and threat indicators.',
+      'Integrated RESTful data streams for security telemetry collection and real-time defense monitoring.',
+    ],
+  },
+  {
+    id: 'whatsapp-clone',
+    number: '04',
+    title: 'WhatsApp Clone',
+    category: 'Real-Time Messaging',
+    description:
+      'High-performance real-time messaging application built with React, Node.js, Express, MongoDB, and Socket.IO. Features event-based communication, persistent chat storage, and room channels.',
+    type: 'Full Stack System',
+    tags: [
+      'React.js',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'Socket.IO',
+      'WebSockets',
+      'Real-Time Chat',
+    ],
+    col1TopImage: apiBackendImg,
+    col1BottomImage: microskillArcadeDashboardImg,
+    col2Image: typingTestMainImg,
+    githubUrl: 'https://github.com/AswinAK1',
+    liveUrl: 'https://github.com/AswinAK1',
+    highlights: [
+      'Built real-time chat with event-based communication and persistent chat storage.',
+      'Engineered event-driven message dispatching, room broadcasts, and online presence indicators.',
+      'Architected MongoDB schema models for conversations, messages, user profiles, and media records.',
+    ],
   },
 ];
 
@@ -180,11 +393,27 @@ export const ABOUT_3D_ASSETS = {
 };
 
 export const HERO_PORTRAIT =
-  'https://feuohuijuhgiynnn.public.blob.vercel-storage.com/signatures/signature_1794474193600_bf79362c4540b613.png';
+  'https://feuohuijuhgiynnn.public.blob.vercel-storage.com/signatures/signature_1794477972954_e8797aa96da35455.png';
 
 export const SOCIAL_LINKS = [
-  { name: 'GitHub', url: 'https://github.com/garvshaw89-glitch', label: 'github.com/garvshaw89-glitch' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/garv-shaw-08a33237b', label: 'linkedin.com/in/garv-shaw' },
-  { name: 'Instagram', url: 'https://instagram.com/garvshaw', label: '@garvshaw' },
-  { name: 'Email', url: 'mailto:garvshawinfo@gmail.com', label: 'garvshawinfo@gmail.com' },
+  {
+    name: 'LinkedIn',
+    url: 'https://linkedin.com/in/aswinak1212',
+    label: 'linkedin.com/in/aswinak1212',
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/AswinAK1',
+    label: 'github.com/AswinAK1',
+  },
+  {
+    name: 'Email',
+    url: 'mailto:aswinak1212@gmail.com',
+    label: 'aswinak1212@gmail.com',
+  },
+  {
+    name: 'Phone',
+    url: 'tel:+918921650561',
+    label: '+91 8921650561',
+  },
 ];
