@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ProjectItem } from '../types';
 import { LiveProjectButton } from './LiveProjectButton';
-import { Github } from 'lucide-react';
+import { Github, CheckCircle2 } from 'lucide-react';
 
 interface ProjectCardProps {
   project: ProjectItem;
@@ -56,12 +56,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <span className="font-semibold uppercase tracking-widest text-xs sm:text-sm text-cyan-400 mb-1">
                 {project.category} &bull; {project.type}
               </span>
-              <h3
-                className="font-black uppercase text-white tracking-tight leading-none"
-                style={{ fontSize: 'clamp(1.4rem, 4vw, 3rem)' }}
-              >
-                {project.title}
-              </h3>
+              <div className="flex flex-wrap items-center gap-3">
+                {project.logo && (
+                  <div className="h-7 sm:h-9 max-w-[120px] px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center shrink-0">
+                    <img
+                      src={project.logo}
+                      alt={`${project.title} logo`}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                )}
+                <h3
+                  className="font-black uppercase text-white tracking-tight leading-none"
+                  style={{ fontSize: 'clamp(1.4rem, 4vw, 3rem)' }}
+                >
+                  {project.title}
+                </h3>
+              </div>
             </div>
           </div>
 
@@ -170,12 +181,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </motion.div>
         </div>
 
-        {/* Project Description & Tags */}
-        <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-slate-300 font-light text-sm sm:text-base opacity-80 max-w-2xl">
+        {/* Project Description, Highlights & Tags */}
+        <div className="mt-6 sm:mt-8 flex flex-col gap-4">
+          <p className="text-slate-300 font-light text-sm sm:text-base leading-relaxed max-w-3xl">
             {project.description}
           </p>
-          <div className="flex flex-wrap gap-2">
+
+          {project.highlights && project.highlights.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-white/5">
+              {project.highlights.slice(0, 2).map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300 font-light">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 mt-0.5 shrink-0" />
+                  <span className="line-clamp-2">{item}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-2 pt-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
