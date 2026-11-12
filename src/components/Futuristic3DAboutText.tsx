@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { ShieldCheck, Building2, HeartHandshake, Zap, Cloud, Cpu, GraduationCap, Globe2 } from 'lucide-react';
 
 interface Futuristic3DAboutTextProps {
   id?: string;
@@ -8,7 +9,7 @@ interface Futuristic3DAboutTextProps {
 interface DomainBadge {
   id: string;
   label: string;
-  emoji: string;
+  icon: React.ReactNode;
   glowColor: string;
   accentBg: string;
   borderHover: string;
@@ -17,49 +18,58 @@ interface DomainBadge {
 
 const DOMAINS: DomainBadge[] = [
   {
-    id: 'ai',
-    label: 'Artificial Intelligence',
-    emoji: '🤖',
+    id: 'crm',
+    label: 'CRM & Multi-Tenant SaaS',
+    icon: <Building2 className="w-4 h-4 text-cyan-300" />,
     glowColor: 'rgba(6, 182, 212, 0.5)',
     accentBg: 'from-cyan-500/20 to-blue-600/10',
     borderHover: 'hover:border-cyan-400',
     delay: 0,
   },
   {
-    id: 'cloud',
-    label: 'Cloud Computing',
-    emoji: '☁️',
-    glowColor: 'rgba(56, 189, 248, 0.5)',
-    accentBg: 'from-sky-500/20 to-indigo-600/10',
-    borderHover: 'hover:border-sky-400',
-    delay: 0.6,
-  },
-  {
-    id: 'dev',
-    label: 'Software Development',
-    emoji: '💻',
-    glowColor: 'rgba(99, 102, 241, 0.5)',
-    accentBg: 'from-indigo-500/20 to-purple-600/10',
-    borderHover: 'hover:border-indigo-400',
-    delay: 1.2,
-  },
-  {
-    id: 'business',
-    label: 'Business',
-    emoji: '📊',
-    glowColor: 'rgba(168, 85, 247, 0.5)',
-    accentBg: 'from-purple-500/20 to-pink-600/10',
-    borderHover: 'hover:border-purple-400',
-    delay: 1.8,
-  },
-  {
-    id: 'finance',
-    label: 'Finance',
-    emoji: '📈',
+    id: 'cybersecurity',
+    label: 'Cybersecurity & Threat Monitoring',
+    icon: <ShieldCheck className="w-4 h-4 text-emerald-300" />,
     glowColor: 'rgba(16, 185, 129, 0.5)',
     accentBg: 'from-emerald-500/20 to-teal-600/10',
     borderHover: 'hover:border-emerald-400',
-    delay: 2.4,
+    delay: 0.5,
+  },
+  {
+    id: 'realtime',
+    label: 'Real-Time Systems (Socket.IO)',
+    icon: <Zap className="w-4 h-4 text-amber-300" />,
+    glowColor: 'rgba(245, 158, 11, 0.5)',
+    accentBg: 'from-amber-500/20 to-orange-600/10',
+    borderHover: 'hover:border-amber-400',
+    delay: 1.0,
+  },
+  {
+    id: 'matrimony',
+    label: 'Matrimony & Video Calling (ZEGO)',
+    icon: <HeartHandshake className="w-4 h-4 text-rose-300" />,
+    glowColor: 'rgba(244, 63, 94, 0.5)',
+    accentBg: 'from-rose-500/20 to-pink-600/10',
+    borderHover: 'hover:border-rose-400',
+    delay: 1.5,
+  },
+  {
+    id: 'cloud-devops',
+    label: 'AWS Cloud & Nginx / PM2',
+    icon: <Cloud className="w-4 h-4 text-sky-300" />,
+    glowColor: 'rgba(56, 189, 248, 0.5)',
+    accentBg: 'from-sky-500/20 to-indigo-600/10',
+    borderHover: 'hover:border-sky-400',
+    delay: 2.0,
+  },
+  {
+    id: 'ai-automation',
+    label: 'Medical AI & n8n Workflows',
+    icon: <Cpu className="w-4 h-4 text-indigo-300" />,
+    glowColor: 'rgba(99, 102, 241, 0.5)',
+    accentBg: 'from-indigo-500/20 to-purple-600/10',
+    borderHover: 'hover:border-indigo-400',
+    delay: 2.5,
   },
 ];
 
@@ -100,7 +110,7 @@ export const Futuristic3DAboutText: React.FC<Futuristic3DAboutTextProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-[820px] px-2 sm:px-4 select-none [perspective:1200px]"
+      className="relative w-full max-w-[880px] px-2 sm:px-4 select-none [perspective:1200px]"
     >
       {/* 3D Tilted Card Body */}
       <motion.div
@@ -109,7 +119,7 @@ export const Futuristic3DAboutText: React.FC<Futuristic3DAboutTextProps> = ({
           rotateY,
           transformStyle: 'preserve-3d',
         }}
-        className="relative w-full rounded-3xl sm:rounded-[36px] bg-[#070B13]/85 backdrop-blur-xl border border-white/10 p-6 sm:p-10 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(6,182,212,0.1)] transition-colors duration-500 hover:border-cyan-500/40"
+        className="relative w-full rounded-3xl sm:rounded-[36px] bg-[#070B13]/90 backdrop-blur-xl border border-white/10 p-6 sm:p-10 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(6,182,212,0.12)] transition-colors duration-500 hover:border-cyan-500/40"
       >
         {/* Holographic Ambient Backlight Aura */}
         <div
@@ -148,7 +158,7 @@ export const Futuristic3DAboutText: React.FC<Futuristic3DAboutTextProps> = ({
             <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
           </span>
           <span className="text-[11px] font-mono tracking-widest text-cyan-300/80 uppercase">
-            Engineering Identity // Cyber Profile
+            Full Stack Developer // Calicut, Kerala
           </span>
         </div>
 
@@ -165,13 +175,13 @@ export const Futuristic3DAboutText: React.FC<Futuristic3DAboutTextProps> = ({
           >
             Hello! I&apos;m{' '}
             <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-indigo-300 drop-shadow-[0_0_18px_rgba(6,182,212,0.4)]">
-              Garv Shaw
+              Aswin AK
             </span>
-            , a passionate{' '}
+            , a Full Stack Developer experienced in architecting{' '}
             <span className="text-white font-semibold underline decoration-cyan-400/40 decoration-2 underline-offset-4">
-              B.Tech Computer Science &amp; Engineering
+              secure, scalable web applications
             </span>{' '}
-            student exploring the intersection of:
+            and real-time systems across:
           </motion.p>
         </div>
 
@@ -193,8 +203,8 @@ export const Futuristic3DAboutText: React.FC<Futuristic3DAboutTextProps> = ({
                 delay: domain.delay,
               }}
               whileHover={{
-                scale: 1.08,
-                y: -6,
+                scale: 1.06,
+                y: -5,
                 transition: { type: 'spring', stiffness: 400, damping: 18 },
               }}
               className={`group relative flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-gradient-to-r ${domain.accentBg} bg-[#0A101D]/90 border border-white/15 backdrop-blur-md cursor-pointer transition-all duration-300 shadow-[0_8px_20px_rgba(0,0,0,0.6)] ${domain.borderHover}`}
@@ -205,8 +215,8 @@ export const Futuristic3DAboutText: React.FC<Futuristic3DAboutTextProps> = ({
                 style={{ backgroundColor: domain.glowColor }}
               />
 
-              <span className="relative z-10 text-base sm:text-lg select-none filter drop-shadow">
-                {domain.emoji}
+              <span className="relative z-10 flex items-center select-none filter drop-shadow">
+                {domain.icon}
               </span>
               <span className="relative z-10 text-xs sm:text-sm font-semibold text-slate-100 tracking-wide group-hover:text-white whitespace-nowrap">
                 {domain.label}
@@ -215,23 +225,35 @@ export const Futuristic3DAboutText: React.FC<Futuristic3DAboutTextProps> = ({
           ))}
         </div>
 
-        {/* Section 3: Passion Manifesto Statement */}
+        {/* Section 3: Professional Summary Statement */}
         <div
           style={{ transform: 'translateZ(35px)' }}
-          className="relative z-10 text-center pt-2 border-t border-white/5"
+          className="relative z-10 text-center pt-4 border-t border-white/10 space-y-4"
         >
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed tracking-normal max-w-2xl mx-auto"
+            className="text-slate-300 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl mx-auto"
           >
-            I&apos;m passionate about{' '}
-            <span className="text-cyan-300 font-medium">building with AI</span>, developing{' '}
-            <span className="text-sky-300 font-medium">modern web experiences</span>, experimenting with{' '}
-            <span className="text-indigo-300 font-medium">emerging technologies</span>, and turning ideas into{' '}
-            <span className="text-emerald-300 font-medium">useful digital products</span>.
+            Strong in <span className="text-cyan-300 font-medium">RESTful API development</span>,{' '}
+            <span className="text-sky-300 font-medium">multi-tenant SaaS architectures</span>,{' '}
+            <span className="text-indigo-300 font-medium">real-time systems using Socket.IO</span>, and{' '}
+            <span className="text-emerald-300 font-medium">AWS cloud deployments</span> (EC2, S3, Nginx, PM2). Proven ability to deliver production solutions across{' '}
+            <span className="text-cyan-200 font-medium">Cybersecurity, CRM, Matrimony, and Medical AI</span>.
           </motion.p>
+
+          {/* Education & Language Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-slate-300">
+              <GraduationCap className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <span>MBA (Marketing Mgmt - IGNOU) &bull; BBA (MES)</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-slate-300">
+              <Globe2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span>Malayalam (Native) &bull; English (Fluent) &bull; Hindi (B2)</span>
+            </div>
+          </div>
         </div>
 
         {/* Interactive 3D Depth Floating Particles / Nodes */}
