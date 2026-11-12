@@ -3,6 +3,7 @@ import { HeroSection } from './components/HeroSection';
 import { MarqueeSection } from './components/MarqueeSection';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
+import { ExperienceSection } from './components/ExperienceSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { FooterSection } from './components/FooterSection';
 import { ProjectModal } from './components/ProjectModal';
@@ -28,7 +29,7 @@ export default function App() {
 
   return (
     <main
-      id="garv-shaw-portfolio"
+      id="aswin-portfolio"
       className="relative w-full bg-[#05070A] text-[#D7E2EA] overflow-x-clip min-h-screen"
     >
       {/* Immersive UI Ambient Glow Backdrops */}
@@ -52,7 +53,10 @@ export default function App() {
         {/* 4. Skills Section - Core Competencies */}
         <ServicesSection id="skills" />
 
-        {/* 5. Projects Section - Featured Work with Sticky Cards */}
+        {/* 5. Experience Section - Professional Work Experience & Education */}
+        <ExperienceSection id="experience" />
+
+        {/* 6. Projects Section - Featured Work with Sticky Cards */}
         <ProjectsSection onSelectProject={handleSelectProject} />
 
         {/* Footer & Contact Section with Social Links */}
