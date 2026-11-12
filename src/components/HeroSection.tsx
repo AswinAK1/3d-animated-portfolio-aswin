@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Navbar } from './Navbar';
 import { ContactButton } from './ContactButton';
 import { Magnet } from './Magnet';
-import { HERO_PORTRAIT } from '../data/portfolioData';
+import { HERO_PORTRAIT, PERSONAL_INFO } from '../data/portfolioData';
 
 interface HeroSectionProps {
   onContactClick?: () => void;
@@ -25,16 +25,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Top Navbar */}
       <Navbar onContactClick={onContactClick} />
 
-      {/* Hero Big Heading */}
-      <div className="w-full overflow-hidden text-center z-10 px-2 sm:px-4">
+      {/* Hero Big Heading - Size tuned to guarantee full visibility without edge cutoff */}
+      <div className="w-full overflow-hidden text-center z-10 px-4 sm:px-6 md:px-8 flex justify-center items-center">
         <motion.h1
           id="hero-main-heading"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-          className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw] mt-6 sm:mt-4 md:-mt-5 cursor-default select-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+          className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap text-[9.5vw] sm:text-[10.5vw] md:text-[11.5vw] lg:text-[12.5vw] mt-6 sm:mt-4 md:-mt-4 cursor-default select-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
         >
-          Hi, i&apos;m garv
+          Hi, i&apos;m {PERSONAL_INFO.firstName}
         </motion.h1>
       </div>
 
@@ -67,7 +67,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <img
                 id="hero-portrait-img"
                 src={HERO_PORTRAIT}
-                alt="Garv Shaw - AI & Cloud Developer"
+                alt={`${PERSONAL_INFO.name} - ${PERSONAL_INFO.title}`}
                 className="w-full h-auto object-contain pointer-events-auto drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] filter contrast-105 hover:contrast-110 transition-all duration-300"
                 loading="eager"
               />
@@ -83,10 +83,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px] backdrop-blur-[2px]"
-          style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
+          className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[180px] sm:max-w-[240px] md:max-w-[300px] backdrop-blur-[2px]"
+          style={{ fontSize: 'clamp(0.75rem, 1.3vw, 1.4rem)' }}
         >
-          an ai & cloud developer crafting intelligent solutions and scalable digital experiences
+          A full stack developer crafting secure, scalable web applications, real-time systems &amp; cloud solutions
         </motion.div>
 
         {/* Right Contact Button */}
