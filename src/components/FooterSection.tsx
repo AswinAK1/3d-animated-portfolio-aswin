@@ -1,7 +1,7 @@
 import React from 'react';
 import { FadeIn } from './FadeIn';
-import { SOCIAL_LINKS } from '../data/portfolioData';
-import { Github, Linkedin, Instagram, Mail, ArrowUp, ExternalLink } from 'lucide-react';
+import { SOCIAL_LINKS, PERSONAL_INFO } from '../data/portfolioData';
+import { Github, Linkedin, Mail, Phone, ArrowUp, ExternalLink, MapPin } from 'lucide-react';
 
 interface FooterSectionProps {
   onContactClick?: () => void;
@@ -21,8 +21,8 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
         return <Github className="w-5 h-5 sm:w-6 sm:h-6" />;
       case 'LinkedIn':
         return <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />;
-      case 'Instagram':
-        return <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />;
+      case 'Phone':
+        return <Phone className="w-5 h-5 sm:w-6 sm:h-6" />;
       case 'Email':
       default:
         return <Mail className="w-5 h-5 sm:w-6 sm:h-6" />;
@@ -43,20 +43,21 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 pb-14 border-b border-white/10">
           <FadeIn delay={0} y={30} className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs uppercase tracking-widest font-semibold mb-4">
-              <span>Connect Directly</span>
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Calicut, Kerala &bull; Open for Opportunities</span>
             </div>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight">
-              Let&apos;s build something transformative.
+              Let&apos;s build something secure &amp; scalable.
             </h2>
             <p className="mt-4 text-[#D7E2EA]/70 font-light text-base sm:text-lg max-w-xl leading-relaxed">
-              Open for AI systems engineering, cloud architecture consulting, quantitative market analysis, and high-performance backend development.
+              Available for full stack engineering, multi-tenant SaaS architecture, real-time communication systems, REST APIs, and AWS cloud deployments.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.15} y={30} className="shrink-0 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
             <a
               id="footer-email-direct-btn"
-              href="mailto:garvshawinfo@gmail.com"
+              href={`mailto:${PERSONAL_INFO.email}`}
               className="relative inline-flex items-center justify-center gap-3 rounded-full text-white font-medium uppercase tracking-widest text-xs sm:text-sm px-8 py-3.5 sm:px-10 sm:py-4 transition-all duration-200 cursor-pointer shadow-[0_4px_24px_rgba(6,182,212,0.4)] hover:shadow-[0_6px_30px_rgba(6,182,212,0.6)] hover:scale-105"
               style={{
                 background: 'linear-gradient(123deg, #083344 0%, #06B6D4 38%, #4F46E5 72%, #7C3AED 100%)',
@@ -65,7 +66,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               }}
             >
               <Mail className="w-4 h-4 text-cyan-200" />
-              <span>Email Garv</span>
+              <span>Email Aswin</span>
             </a>
 
             <button
@@ -80,10 +81,10 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
           </FadeIn>
         </div>
 
-        {/* Social Links Grid: GitHub, LinkedIn, Instagram, Email */}
+        {/* Social Links Grid: LinkedIn, GitHub, Email, Phone */}
         <div id="social-links" className="py-12 border-b border-white/10">
           <p className="text-xs uppercase tracking-widest text-slate-400 font-semibold mb-6">
-            Online Presence & Direct Inquiries
+            Contact &amp; Professional Networks
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {SOCIAL_LINKS.map((link) => (
@@ -91,7 +92,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 key={link.name}
                 id={`footer-social-${link.name.toLowerCase()}`}
                 href={link.url}
-                target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
+                target={link.url.startsWith('mailto:') || link.url.startsWith('tel:') ? '_self' : '_blank'}
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/[0.02] hover:bg-slate-900/80 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(6,182,212,0.15)]"
               >
@@ -119,11 +120,13 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
 
         {/* Bottom Sub-bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#D7E2EA]/50">
-          <p>&copy; {new Date().getFullYear()} Garv Shaw. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <span className="text-cyan-400 font-medium">B.Tech Computer Science</span>
+          <p>&copy; {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.</p>
+          <div className="flex items-center gap-4 sm:gap-6 text-center sm:text-right">
+            <span className="text-cyan-400 font-medium">Full Stack Developer</span>
             <span>&bull;</span>
-            <span>AI & Cloud Specialist</span>
+            <span>Calicut, Kerala</span>
+            <span>&bull;</span>
+            <span className="text-slate-300">MBA &amp; BBA</span>
           </div>
         </div>
       </div>
